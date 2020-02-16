@@ -16,5 +16,8 @@ node () {
  		}
 		archiveArtifacts allowEmptyArchive: false, artifacts: '**/*.war', caseSensitive: true, defaultExcludes: true, fingerprint: true, onlyIfSuccessful: false 
 	}
+    stage ('deploy - staging') {
+    deploy adapters: [tomcat8(credentialsId: 'f98e1c2c-7ca5-433a-889f-271ea935ddc1', path: '', url: 'http://tomcat-docker-staging:8080/')], contextPath: 'webapp', onFailure: false, war: '**/*.war'
+   	}
 }
 }
