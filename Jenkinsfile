@@ -3,7 +3,7 @@ timestamps {
 node () {
 
 	stage ('package - Checkout') {
- 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '', url: 'https://github.com/darrenphowe/maven-project.git']]]) 
+ 	 checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/darrenphowe/maven-project.git']]])
 	}
 	stage ('package - Build') {
  			// Maven build step
