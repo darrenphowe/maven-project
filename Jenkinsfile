@@ -1,12 +1,11 @@
 pipeline{
     agent any
-    tools{
-        maven 'Maven3.6'
-    }
     stages{
         stage('Build'){
             steps{
-                sh 'mvn clean package'
+                withMaven(jdk: 'JDK1.8', maven: 'Maven3.6') {
+                    sh 'mvn clean package'
+                }
             }
             post{
                 success{
